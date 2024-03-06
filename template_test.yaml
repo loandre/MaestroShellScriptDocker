@@ -1,0 +1,53 @@
+appId: ""
+---
+- waitForAnimationToEnd:
+    timeout: 5000
+- swipe:  
+    start: 50%, 90%
+    end: 50%, 10% 
+- tapOn: "{{tapOnValue}}"
+- runFlow:
+    when:
+      visible: "OK"
+    commands:
+        - tapOn: "OK"
+- tapOn: "I read and accept the terms"
+- tapOn: "Advance"
+- tapOn:
+    id: "com.android.permissioncontroller:id/permission_allow_button"
+- tapOn:
+    id: "com.android.permissioncontroller:id/permission_allow_foreground_only_button"
+- tapOn:
+    id: "com.android.permissioncontroller:id/permission_allow_foreground_only_button"
+- tapOn: "Advance"
+- tapOn:
+    id: "com.android.permissioncontroller:id/permission_allow_foreground_only_button"
+- tapOn: "Finalize"
+- runFlow:
+    when:
+      visible: "OK"
+    commands:
+        - tapOn: "OK"
+- tapOn:
+    id: "email"
+- eraseText
+- inputText:
+    text: "motorista@teste.com"
+- tapOn:
+    id: "password"
+- eraseText
+- inputText:
+    text: "123456"
+- tapOn: "I am a partner"
+- tapOn: "LOGIN"
+- waitForAnimationToEnd:
+    timeout: 3000
+- runFlow:
+    when:
+      visible: "Allow"
+    commands:
+        - tapOn: "Allow"
+- waitForAnimationToEnd:
+    timeout: 5000
+- tapOn: Allow all the time
+- tapOn: "Back"
