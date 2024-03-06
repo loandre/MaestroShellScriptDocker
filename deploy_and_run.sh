@@ -12,5 +12,12 @@ sleep 40
 echo "Executando script start.sh no contêiner..."
 docker exec android-container /bin/bash -c "/home/androidusr/start.sh"
 
+# Aguardar um momento para garantir que a APK foi instalada e o ambiente está pronto
+echo "Esperando o ambiente estar completamente pronto..."
+sleep 10
+
+echo "Executando script de teste run_test.sh no contêiner..."
+docker exec android-container /bin/bash -c "/home/androidusr/run_test.sh 'hml704appsPro'"
+
 echo "Deploy e execução concluídos."
 

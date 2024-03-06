@@ -11,6 +11,9 @@ EXPOSE 6080 9999
 # Instalar Maestro CLI
 RUN curl -Ls "https://get.maestro.mobile.dev" | bash
 
+# Atualiza o PATH para incluir o diretório de instalação do Maestro CLI
+ENV PATH="/home/androidusr/.maestro/bin:${PATH}"
+
 # Copiar APKs para o contêiner
 COPY testIDVouTeHomologar.apk /home/androidusr/
 
